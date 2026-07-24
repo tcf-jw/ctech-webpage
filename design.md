@@ -174,6 +174,35 @@ come.
 | `soil-lab-analysis.png`        | Soil lab bench with sample beakers and instruments          | Chemistry / methodology          |
 | `weather-station-field.png`    | Solar-powered weather and soil monitoring station in field  | Sensors / weather                |
 | `river-meander-aerial.png`     | Aerial river meander through golden hills                   | Catchments / spatial analytics   |
+| `satellite-intelligence.png`   | PLACEHOLDER satellite view with analysis overlay            | Satellite intelligence (interim) |
+
+## Flags / Backlog
+
+Deferred items to pick up in a local session:
+
+1. **Demo form backend** — `demo-request-form.tsx` validates and toasts but
+   posts nowhere. Wire to an endpoint/email service (and add spam
+   protection) before launch.
+2. **Satoshi display font** — Fontshare is blocked from the remote build
+   environment, so Geist stands in via the `--font-heading` token. Locally:
+   download Satoshi from fontshare.com, drop `Satoshi-Variable.woff2` in
+   `public/fonts/`, add an `@font-face`, and put `'Satoshi Variable'` first
+   in `--font-heading` in `src/index.css`.
+3. **IMAGE 02 satellite asset** — a derived placeholder
+   (`satellite-intelligence`) is in the pipeline; replace
+   `design/raw-images/satellite-intelligence.png` with the real Gemini
+   render (prompt: `design/gemini-satellite-prompt.md`) and re-run
+   `node scripts/optimize-images.mjs`.
+4. **shadcn vendored components** — ui.shadcn.com was proxy-blocked, so
+   accordion/sheet/input/textarea/label/separator were vendored from the
+   shadcn-ui repo sources (radix-vega style). Optionally re-run
+   `npx shadcn@latest add` locally to let the CLI own them.
+5. **Absolute URLs for SEO** — og:image and the JSON-LD Organization need
+   the production domain once confirmed (currently relative /
+   domain-less).
+6. **Mobile Lighthouse** — desktop scores 99/100/100/100; mobile-throttled
+   perf ~82–85 (SPA boot cost). If mobile perf becomes a hard target,
+   consider SSG/prerendering the homepage.
 
 ## Image Generation Pack Mappings
 
@@ -186,7 +215,7 @@ obvious AI style).
 | Pack ID  | Subject                              | Asset in `public/images/`                          |
 | -------- | ------------------------------------ | -------------------------------------------------- |
 | IMAGE 01 | Homepage hero (broadacre, GIS overlay, floating card) | `hero-farmland-ui-overlay.png` (clean variant: `hero-farmland-clean.png`) |
-| IMAGE 02 | Satellite intelligence               | _not yet uploaded_                                  |
+| IMAGE 02 | Satellite intelligence               | `satellite-intelligence.png` — PLACEHOLDER derived from river-meander aerial (`scripts/make-satellite-placeholder.mjs`); real render pending via `design/gemini-satellite-prompt.md` |
 | IMAGE 03 | Macro soil profile                   | `soil-roots-macro.png`                              |
 | IMAGE 04 | Agronomist collecting samples        | `agronomist-soil-sampling.png`                      |
 | IMAGE 05 | Drone survey over crops              | `drone-paddocks.png`                                |

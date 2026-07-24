@@ -76,6 +76,16 @@ export const riverMeanderAerial = asset(
   'Aerial view of a river meandering in broad loops through golden hills',
 )
 
+// Placeholder for IMAGE 02 (Satellite Intelligence) — derived from the
+// river-meander aerial with a subtle analysis overlay. Swap the raw PNG for
+// the real Gemini render (design/gemini-satellite-prompt.md) and re-run
+// scripts/optimize-images.mjs.
+export const satelliteIntelligence = asset(
+  'satellite-intelligence',
+  CARD_WIDTHS,
+  'Satellite view of Australian farmland with traced paddock boundaries and a subtle analysis overlay',
+)
+
 export function srcSetFor(image: ImageAsset) {
   return image.widths
     .map((w) => `/images/${image.base}-${w}.webp ${w}w`)
