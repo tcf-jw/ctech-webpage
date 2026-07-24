@@ -18,7 +18,6 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Toaster } from '@/components/ui/sonner'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { StatTile } from '@/components/demo/stat-tile'
 import { TrendChart } from '@/components/demo/trend-chart'
@@ -41,6 +40,7 @@ export default function DashboardDemo() {
 
   return (
     <div className="mx-auto max-w-4xl space-y-6 p-6">
+      <title>Dashboard Demo — Cellutech</title>
       <header className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-semibold">Starter Dashboard</h1>
@@ -115,8 +115,6 @@ export default function DashboardDemo() {
           </Tabs>
         </CardContent>
       </Card>
-
-      <Toaster />
     </div>
   )
 }

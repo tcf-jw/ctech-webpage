@@ -6,11 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Claude Template</title>
     <script>
-      const stored = localStorage.getItem('theme')
-      if (
-        stored === 'dark' ||
-        (!stored && matchMedia('(prefers-color-scheme: dark)').matches)
-      ) {
+      // Cellutech is dark-first: dark unless the user explicitly chose light.
+      if (localStorage.getItem('theme') !== 'light') {
         document.documentElement.classList.add('dark')
       }
     </script>
