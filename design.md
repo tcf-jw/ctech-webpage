@@ -167,6 +167,11 @@ Stored in `public/images/`. More to come.
 | `drone-paddocks.png`           | Drone in flight over green paddocks                         | How It Works / data capture      |
 | `agronomist-soil-sampling.png` | Agronomist taking a soil core sample in the field           | Case studies / trust             |
 | `soil-roots-macro.png`         | Macro of soil profile with roots and moisture droplets      | Soil science / platform features |
+| `wetland-billabong-aerial.png` | Aerial wetland/billabong winding through dry pasture        | Environment / carbon             |
+| `contour-revegetation-aerial.png` | Aerial of contoured, revegetated terrain rings           | Regeneration / land management   |
+| `soil-lab-analysis.png`        | Soil lab bench with sample beakers and instruments          | Chemistry / methodology          |
+| `weather-station-field.png`    | Solar-powered weather and soil monitoring station in field  | Sensors / weather                |
+| `river-meander-aerial.png`     | Aerial river meander through golden hills                   | Catchments / spatial analytics   |
 
 ---
 
