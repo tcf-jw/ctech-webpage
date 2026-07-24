@@ -3,6 +3,7 @@ import { SiteHeader } from '@/components/layout/site-header'
 import { SiteFooter } from '@/components/layout/site-footer'
 import { Hero } from '@/components/home/hero'
 import { PlatformOverview } from '@/components/home/platform-overview'
+import { DashboardPreview } from '@/components/dashboard-preview/dashboard-preview'
 import { Industries } from '@/components/home/industries'
 import { HowItWorks } from '@/components/home/how-it-works'
 import { Features } from '@/components/home/features'
@@ -23,6 +24,7 @@ export default function Home() {
       <main id="main">
         <Hero />
         <PlatformOverview />
+        <DashboardPreview />
         <Industries />
         <HowItWorks />
         <Features />

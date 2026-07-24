@@ -1,66 +1,11 @@
-import { useMemo } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { motion, useReducedMotion } from 'motion/react'
-import { LinePath } from '@visx/shape'
-import { curveMonotoneX } from '@visx/curve'
-import { scaleLinear, scalePoint } from '@visx/scale'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { AnimatedNumber } from '@/components/shared/animated-number'
+import { Sparkline } from '@/components/shared/sparkline'
 import { TrendDelta } from '@/components/shared/trend-delta'
 import { paddockHealth } from '@/components/home/data'
-
-const SPARK_WIDTH = 260
-const SPARK_HEIGHT = 36
-
-function Sparkline({ series }: { series: number[] }) {
-  const reduced = useReducedMotion()
-  const { xScale, yScale } = useMemo(() => {
-    const min = Math.min(...series)
-    const max = Math.max(...series)
-    return {
-      xScale: scalePoint<number>({
-        domain: series.map((_, i) => i),
-        range: [2, SPARK_WIDTH - 2],
-      }),
-      yScale: scaleLinear<number>({
-        domain: [min - 2, max + 2],
-        range: [SPARK_HEIGHT - 2, 2],
-      }),
-    }
-  }, [series])
-
-  return (
-    <svg
-      width={SPARK_WIDTH}
-      height={SPARK_HEIGHT}
-      viewBox={`0 0 ${SPARK_WIDTH} ${SPARK_HEIGHT}`}
-      className="w-full"
-      role="img"
-      aria-label={`Paddock health trend over 12 weeks, rising from ${paddockHealth.series[0]} to ${paddockHealth.score}`}
-    >
-      <LinePath<number>
-        data={series}
-        x={(_, i) => xScale(i) ?? 0}
-        y={(d) => yScale(d)}
-        curve={curveMonotoneX}
-      >
-        {({ path }) => (
-          <motion.path
-            d={path(series) || ''}
-            fill="none"
-            stroke="var(--chart-1)"
-            strokeWidth={1.5}
-            strokeLinecap="round"
-            initial={{ pathLength: reduced ? 1 : 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 0.9, ease: 'easeOut', delay: 0.9 }}
-          />
-        )}
-      </LinePath>
-    </svg>
-  )
-}
 
 export function PaddockHealthCard({ className }: { className?: string }) {
   const reduced = useReducedMotion()
@@ -95,7 +40,12 @@ export function PaddockHealthCard({ className }: { className?: string }) {
         </p>
 
         <div className="mt-3">
-          <Sparkline series={paddockHealth.series} />
+          <Sparkline
+            series={paddockHealth.series}
+            delay={0.9}
+            className="w-full"
+            ariaLabel={`Paddock health trend over 12 weeks, rising from ${paddockHealth.series[0]} to ${paddockHealth.score}`}
+          />
         </div>
 
         <Separator className="my-4" />
