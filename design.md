@@ -156,6 +156,18 @@ Rules:
 - No obvious AI artwork.
 - Landscape is always the hero.
 
+## Image Assets
+
+Stored in `public/images/`. More to come.
+
+| File                           | Content                                                     | Suggested use                    |
+| ------------------------------ | ----------------------------------------------------------- | -------------------------------- |
+| `hero-farmland-ui-overlay.png` | Aerial patchwork farmland at golden hour, floating UI card  | Hero                             |
+| `hero-farmland-clean.png`      | Same aerial farmland, no overlay                            | Hero alternative / backgrounds   |
+| `drone-paddocks.png`           | Drone in flight over green paddocks                         | How It Works / data capture      |
+| `agronomist-soil-sampling.png` | Agronomist taking a soil core sample in the field           | Case studies / trust             |
+| `soil-roots-macro.png`         | Macro of soil profile with roots and moisture droplets      | Soil science / platform features |
+
 ---
 
 ## Dashboard
