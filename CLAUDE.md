@@ -4,6 +4,25 @@ Starter template for webapps and websites: Vite + React 19 + TypeScript +
 react-router + Tailwind 4 + shadcn/ui (radix primitives) + visx charts +
 motion + number-flow, wired for Claude Code with project skills.
 
+## Project: Cellutech
+
+This repo is the marketing website for Cellutech, an AI-powered soil
+intelligence platform (chemistry + microbiology + spatial analytics) for
+Australian agronomists, mining rehabilitation, environmental restoration,
+government and research.
+
+- `design.md` is the canonical design system: palette, typography, radii,
+  motion rules, homepage structure, hero copy, image rules, and the image
+  asset inventory with generation-pack mappings. Follow it for ALL UI work.
+- Photography assets live in `public/images/` (referenced as
+  `/images/<name>.png`). Every asset maps to an ID in the Cellutech image
+  generation pack — see "Image Generation Pack Mappings" in `design.md`.
+- `design/homepage-mockup.png` is the visual reference for the homepage
+  layout, floating Paddock Health Index card, and dashboard previews.
+- Aesthetic bar: Apple / Planet Labs / Linear / Stripe — premium enterprise
+  SaaS, dark UI, landscape photography as hero. Never generic farming or
+  sci-fi AI.
+
 ## Commands
 
 - `pnpm dev` - dev server (Vite, http://localhost:5173)

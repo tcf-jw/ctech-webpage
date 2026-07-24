@@ -173,6 +173,46 @@ Stored in `public/images/`. More to come.
 | `weather-station-field.png`    | Solar-powered weather and soil monitoring station in field  | Sensors / weather                |
 | `river-meander-aerial.png`     | Aerial river meander through golden hills                   | Catchments / spatial analytics   |
 
+## Image Generation Pack Mappings
+
+Images are generated from the Cellutech Gemini image pack (one premium
+photography campaign: documentary, ultra realistic, Australian landscapes,
+golden hour, medium contrast, slightly desaturated, rich earth tones;
+scientific overlays subtle, max 15% opacity; no fake people, no neon, no
+obvious AI style).
+
+| Pack ID  | Subject                              | Asset in `public/images/`                          |
+| -------- | ------------------------------------ | -------------------------------------------------- |
+| IMAGE 01 | Homepage hero (broadacre, GIS overlay, floating card) | `hero-farmland-ui-overlay.png` (clean variant: `hero-farmland-clean.png`) |
+| IMAGE 02 | Satellite intelligence               | _not yet uploaded_                                  |
+| IMAGE 03 | Macro soil profile                   | `soil-roots-macro.png`                              |
+| IMAGE 04 | Agronomist collecting samples        | `agronomist-soil-sampling.png`                      |
+| IMAGE 05 | Drone survey over crops              | `drone-paddocks.png`                                |
+| IMAGE 06 | Environmental restoration (wetlands) | `wetland-billabong-aerial.png`                      |
+| IMAGE 07 | Mining rehabilitation (revegetated)  | `contour-revegetation-aerial.png`                   |
+| IMAGE 08 | River system aerial                  | `river-meander-aerial.png`                          |
+| IMAGE 09 | Weather station / sensors            | `weather-station-field.png`                         |
+| IMAGE 10 | Soil science laboratory              | `soil-lab-analysis.png`                             |
+
+## Design Reference
+
+`design/homepage-mockup.png` is the visual north star: hero layout with nav
+(Platform, Solutions, Industries, Resources, Company, Request a Demo CTA),
+floating Paddock Health Index card (score /100, Organic Carbon %, Microbial
+Diversity, Available Nitrogen with trend deltas), dashboard preview panels
+(Paddock Overview map, Soil Analysis with radar chart, Recommendations with
+impact tags, Reports list), industry image packs (Agriculture, Environmental,
+Mining Rehabilitation), thin-line green icon style, Satoshi display type.
+
+Audience per the image pack brief: agronomists, agricultural consultants,
+mining rehabilitation, environmental restoration, government, research
+organisations. Feel: Apple / Planet Labs / Linear / Stripe / OpenAI /
+Palantir — not generic farming or sci-fi AI.
+
+Note: the mockup's palette chips (#16A34A green family) predate this
+document — the Colour Palette section above (`#18C37E` primary on `#081118`)
+is canonical.
+
 ---
 
 ## Dashboard
