@@ -2,6 +2,13 @@ import { SkipLink } from '@/components/layout/skip-link'
 import { SiteHeader } from '@/components/layout/site-header'
 import { SiteFooter } from '@/components/layout/site-footer'
 import { Hero } from '@/components/home/hero'
+import { PlatformOverview } from '@/components/home/platform-overview'
+import { Industries } from '@/components/home/industries'
+import { HowItWorks } from '@/components/home/how-it-works'
+import { Features } from '@/components/home/features'
+import { CaseStudies } from '@/components/home/case-studies'
+import { Faq } from '@/components/home/faq'
+import { Cta } from '@/components/home/cta'
 
 export default function Home() {
   return (
@@ -15,6 +22,13 @@ export default function Home() {
       <SiteHeader />
       <main id="main">
         <Hero />
+        <PlatformOverview />
+        <Industries />
+        <HowItWorks />
+        <Features />
+        <CaseStudies />
+        <Faq />
+        <Cta />
       </main>
       <SiteFooter />
     </>
