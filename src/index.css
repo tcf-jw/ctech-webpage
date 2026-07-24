@@ -80,11 +80,13 @@
     --border: #D8E0E6;
     --input: #D8E0E6;
     --ring: #0B7C4F;
-    --chart-1: #0B7C4F;
-    --chart-2: #0C7BB3;
-    --chart-3: #8A6239;
-    --chart-4: #A16207;
-    --chart-5: #5A7186;
+    /* Categorical data palette — dataviz-skill validated (light, on #FFF):
+       lightness band, chroma floor, CVD + normal-vision separation, 3:1. */
+    --chart-1: #0F875A;
+    --chart-2: #0070A6;
+    --chart-3: #7F4413;
+    --chart-4: #A4780E;
+    --chart-5: #61549E;
     --success: #0A7A45;
     --warning: #A16207;
     --earth: #8A6239;
@@ -122,11 +124,13 @@
     --border: #243241;
     --input: #2C3B4B;
     --ring: #18C37E;
-    --chart-1: #18C37E;
-    --chart-2: #52C7FF;
-    --chart-3: #A47B52;
-    --chart-4: #F2B94B;
-    --chart-5: #7C93A6;
+    /* Categorical data palette — dataviz-skill validated (dark, on #111A22):
+       brand hues snapped into the L 0.48-0.67 band with C >= 0.10. */
+    --chart-1: #10AC79;
+    --chart-2: #2382BA;
+    --chart-3: #985521;
+    --chart-4: #B78A2E;
+    --chart-5: #7C6FB1;
     --success: #47D78C;
     --warning: #F2B94B;
     --earth: #A47B52;

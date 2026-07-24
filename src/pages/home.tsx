@@ -1,6 +1,7 @@
 import { SkipLink } from '@/components/layout/skip-link'
 import { SiteHeader } from '@/components/layout/site-header'
 import { SiteFooter } from '@/components/layout/site-footer'
+import { Hero } from '@/components/home/hero'
 
 export default function Home() {
   return (
@@ -12,7 +13,9 @@ export default function Home() {
       />
       <SkipLink />
       <SiteHeader />
-      <main id="main" />
+      <main id="main">
+        <Hero />
+      </main>
       <SiteFooter />
     </>
   )
