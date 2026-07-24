@@ -50,7 +50,12 @@ export default function DashboardDemo() {
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <Button variant="outline" size="icon" aria-label="Refresh data" onClick={refresh}>
+          <Button
+            variant="outline"
+            size="icon"
+            aria-label="Refresh data"
+            onClick={refresh}
+          >
             <RefreshCw />
           </Button>
           <ThemeToggle />
@@ -61,7 +66,11 @@ export default function DashboardDemo() {
         <StatTile
           label="Revenue (12 mo)"
           value={revenue}
-          format={{ style: 'currency', currency: 'AUD', maximumFractionDigits: 0 }}
+          format={{
+            style: 'currency',
+            currency: 'AUD',
+            maximumFractionDigits: 0,
+          }}
         />
         <StatTile label="Orders" value={orders} />
         <StatTile

@@ -1,9 +1,11 @@
+import { lazy, Suspense } from 'react'
 import { Route, Routes } from 'react-router'
 import { Toaster } from '@/components/ui/sonner'
 import { ThemeProvider } from '@/components/theme-provider'
 import { useTheme } from '@/lib/theme-context'
 import Home from '@/pages/home'
-import DashboardDemo from '@/pages/dashboard-demo'
+
+const DashboardDemo = lazy(() => import('@/pages/dashboard-demo'))
 
 function AppToaster() {
   const { dark } = useTheme()
@@ -15,7 +17,14 @@ export default function App() {
     <ThemeProvider>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/demo" element={<DashboardDemo />} />
+        <Route
+          path="/demo"
+          element={
+            <Suspense fallback={null}>
+              <DashboardDemo />
+            </Suspense>
+          }
+        />
       </Routes>
       <AppToaster />
     </ThemeProvider>

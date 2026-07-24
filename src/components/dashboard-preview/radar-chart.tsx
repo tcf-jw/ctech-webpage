@@ -16,7 +16,11 @@ function pointFor(axisIndex: number, value: number): [number, number] {
 
 function polygonPoints(values: number[]) {
   return values
-    .map((v, i) => pointFor(i, v).map((n) => n.toFixed(1)).join(','))
+    .map((v, i) =>
+      pointFor(i, v)
+        .map((n) => n.toFixed(1))
+        .join(','),
+    )
     .join(' ')
 }
 
@@ -73,9 +77,7 @@ export function RadarChart() {
         })}
 
         <motion.g
-          initial={
-            reduced ? { opacity: 0 } : { opacity: 0, scale: 0.7 }
-          }
+          initial={reduced ? { opacity: 0 } : { opacity: 0, scale: 0.7 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.7, ease: 'easeOut' }}

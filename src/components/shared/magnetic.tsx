@@ -1,5 +1,10 @@
 import { useRef, useState } from 'react'
-import { motion, useMotionValue, useReducedMotion, useSpring } from 'motion/react'
+import {
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useSpring,
+} from 'motion/react'
 import type { ReactNode } from 'react'
 
 const MAX_X = 6

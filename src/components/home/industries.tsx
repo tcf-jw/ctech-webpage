@@ -3,10 +3,7 @@ import { Section } from '@/components/shared/section'
 import { StaggerGroup, StaggerItem } from '@/components/shared/stagger'
 import { FadeIn } from '@/components/shared/fade-in'
 import { ResponsiveImage } from '@/components/shared/responsive-image'
-import {
-  governmentCallout,
-  industries,
-} from '@/components/home/data'
+import { governmentCallout, industries } from '@/components/home/data'
 import {
   contourRevegetationAerial,
   dronePaddocks,

@@ -1,9 +1,5 @@
 import { cn } from '@/lib/utils'
-import {
-  srcFor,
-  srcSetFor,
-  type ImageAsset,
-} from '@/components/home/images'
+import { srcFor, srcSetFor, type ImageAsset } from '@/components/home/images'
 
 type ResponsiveImageProps = {
   image: ImageAsset

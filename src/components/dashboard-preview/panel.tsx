@@ -17,9 +17,9 @@ export function Panel({ title, action, children, className }: PanelProps) {
       )}
     >
       <div className="mb-3 flex items-center justify-between gap-3">
-        <h4 className="font-mono text-[11px] font-medium tracking-[0.15em] text-muted-foreground uppercase">
+        <h3 className="font-mono text-[11px] font-medium tracking-[0.15em] text-muted-foreground uppercase">
           {title}
-        </h4>
+        </h3>
         {action}
       </div>
       {children}

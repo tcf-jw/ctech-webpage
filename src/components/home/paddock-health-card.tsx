@@ -12,9 +12,7 @@ export function PaddockHealthCard({ className }: { className?: string }) {
 
   return (
     <motion.div
-      initial={
-        reduced ? { opacity: 0 } : { opacity: 0, y: 24, scale: 0.97 }
-      }
+      initial={reduced ? { opacity: 0 } : { opacity: 0, y: 24, scale: 0.97 }}
       animate={reduced ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1 }}
       transition={{ delay: 0.5, duration: 0.7, ease: 'easeOut' }}
       className={className}

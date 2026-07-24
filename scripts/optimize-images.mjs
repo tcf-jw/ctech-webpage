@@ -28,7 +28,7 @@ for (const file of files) {
     await src
       .clone()
       .resize({ width: w })
-      .webp({ quality: isHero ? 78 : 75 })
+      .webp({ quality: isHero ? 70 : 75 })
       .toFile(path.join(OUT_DIR, `${base}-${w}.webp`))
   }
   manifest.push({ base, width, height, widths })

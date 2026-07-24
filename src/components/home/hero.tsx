@@ -1,11 +1,6 @@
 import { useRef } from 'react'
 import { ArrowRight } from 'lucide-react'
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-} from 'motion/react'
+import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
 import { Button } from '@/components/ui/button'
 import { Magnetic } from '@/components/shared/magnetic'
 import { ResponsiveImage } from '@/components/shared/responsive-image'

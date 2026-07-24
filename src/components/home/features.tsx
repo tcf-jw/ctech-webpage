@@ -1,11 +1,4 @@
-import {
-  CloudSun,
-  Dna,
-  FlaskConical,
-  Layers,
-  Leaf,
-  Target,
-} from 'lucide-react'
+import { CloudSun, Dna, FlaskConical, Layers, Leaf, Target } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Section } from '@/components/shared/section'
 import { StaggerGroup, StaggerItem } from '@/components/shared/stagger'
@@ -75,8 +68,8 @@ export function Features() {
                 The living half of your soil, finally measured
               </h3>
               <p className="mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
-                Roots, microbes and moisture — the biology that drives yield
-                and resilience, quantified alongside the chemistry.
+                Roots, microbes and moisture — the biology that drives yield and
+                resilience, quantified alongside the chemistry.
               </p>
             </div>
           </div>

@@ -7,7 +7,11 @@ type StaggerGroupProps = {
   delay?: number
 }
 
-export function StaggerGroup({ children, className, delay = 0 }: StaggerGroupProps) {
+export function StaggerGroup({
+  children,
+  className,
+  delay = 0,
+}: StaggerGroupProps) {
   return (
     <motion.div
       initial="hidden"

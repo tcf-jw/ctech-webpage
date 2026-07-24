@@ -27,10 +27,7 @@ function lerpQuad(u: number, v: number): [number, number] {
     QUAD.bl[0] + (QUAD.br[0] - QUAD.bl[0]) * u,
     QUAD.bl[1] + (QUAD.br[1] - QUAD.bl[1]) * u,
   ]
-  return [
-    top[0] + (bottom[0] - top[0]) * v,
-    top[1] + (bottom[1] - top[1]) * v,
-  ]
+  return [top[0] + (bottom[0] - top[0]) * v, top[1] + (bottom[1] - top[1]) * v]
 }
 
 function cellPoints(col: number, row: number) {
@@ -38,7 +35,12 @@ function cellPoints(col: number, row: number) {
   const u1 = (col + 1) / COLS
   const v0 = row / ROWS
   const v1 = (row + 1) / ROWS
-  return [lerpQuad(u0, v0), lerpQuad(u1, v0), lerpQuad(u1, v1), lerpQuad(u0, v1)]
+  return [
+    lerpQuad(u0, v0),
+    lerpQuad(u1, v0),
+    lerpQuad(u1, v1),
+    lerpQuad(u0, v1),
+  ]
     .map((p) => p.map((n) => n.toFixed(1)).join(','))
     .join(' ')
 }
@@ -98,7 +100,13 @@ export function GisOverlay({ layers }: { layers: Set<GisLayerKey> }) {
                     initial={{ opacity: 0 }}
                     animate={
                       pulse
-                        ? { opacity: [0.18 + intensity * 0.27, 0.1 + intensity * 0.27, 0.18 + intensity * 0.27] }
+                        ? {
+                            opacity: [
+                              0.18 + intensity * 0.27,
+                              0.1 + intensity * 0.27,
+                              0.18 + intensity * 0.27,
+                            ],
+                          }
                         : { opacity: 0.14 + intensity * 0.27 }
                     }
                     transition={

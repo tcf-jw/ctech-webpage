@@ -8,7 +8,12 @@ type FadeInProps = {
   y?: number
 }
 
-export function FadeIn({ children, className, delay = 0, y = 16 }: FadeInProps) {
+export function FadeIn({
+  children,
+  className,
+  delay = 0,
+  y = 16,
+}: FadeInProps) {
   const reduced = useReducedMotion()
 
   return (

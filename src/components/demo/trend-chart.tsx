@@ -159,10 +159,7 @@ function Chart({ data, width }: ChartProps) {
         <div
           className="pointer-events-none absolute rounded-md border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md"
           style={{
-            left: Math.min(
-              MARGIN.left + x(hoveredPoint) + 12,
-              width - 130,
-            ),
+            left: Math.min(MARGIN.left + x(hoveredPoint) + 12, width - 130),
             top: MARGIN.top + y(hoveredPoint) - 40,
           }}
         >

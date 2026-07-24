@@ -1,5 +1,8 @@
 import { Button } from '@/components/ui/button'
-import { gisLayers, type GisLayerKey } from '@/components/dashboard-preview/data'
+import {
+  gisLayers,
+  type GisLayerKey,
+} from '@/components/dashboard-preview/data'
 import { cn } from '@/lib/utils'
 
 type LayerToggleProps = {

@@ -7,7 +7,11 @@ type TrendDeltaProps = {
   className?: string
 }
 
-export function TrendDelta({ value, direction = 'up', className }: TrendDeltaProps) {
+export function TrendDelta({
+  value,
+  direction = 'up',
+  className,
+}: TrendDeltaProps) {
   const Icon = direction === 'up' ? ArrowUpRight : ArrowDownRight
 
   return (

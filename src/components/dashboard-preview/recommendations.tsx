@@ -39,7 +39,10 @@ export function Recommendations({ className }: { className?: string }) {
               <p className="text-sm font-medium">{rec.title}</p>
               <Badge
                 variant="secondary"
-                className={cn('shrink-0 font-mono text-[10px]', impactStyles[rec.impact])}
+                className={cn(
+                  'shrink-0 font-mono text-[10px]',
+                  impactStyles[rec.impact],
+                )}
               >
                 {rec.impact} impact
               </Badge>

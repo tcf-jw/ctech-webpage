@@ -26,9 +26,21 @@ export const paddockHealth = {
   // 12 weeks of index history for the sparkline
   series: [64, 66, 65, 68, 70, 69, 72, 74, 73, 77, 80, 82],
   metrics: [
-    { label: 'Organic Carbon', value: 2.65, decimals: 2, suffix: '%', delta: '8%' },
+    {
+      label: 'Organic Carbon',
+      value: 2.65,
+      decimals: 2,
+      suffix: '%',
+      delta: '8%',
+    },
     { label: 'Microbial Diversity', text: 'High', delta: '15%' },
-    { label: 'Available Nitrogen', value: 42, decimals: 0, suffix: ' mg/kg', delta: '6%' },
+    {
+      label: 'Available Nitrogen',
+      value: 42,
+      decimals: 0,
+      suffix: ' mg/kg',
+      delta: '6%',
+    },
   ] as HealthMetric[],
 }
 
@@ -215,4 +227,3 @@ export const faqs = [
       'A per-hectare subscription that includes sampling design, lab analysis, the dashboard and recommendations — no per-seat fees. Rehabilitation and research programs are quoted per project scope.',
   },
 ] as const
-

@@ -54,7 +54,9 @@ export function DemoRequestForm() {
       return
     }
 
-    toast.success('Request received — we’ll be in touch within one business day.')
+    toast.success(
+      'Request received — we’ll be in touch within one business day.',
+    )
     form.reset()
     setIndustry('')
   }

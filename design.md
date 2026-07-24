@@ -158,7 +158,9 @@ Rules:
 
 ## Image Assets
 
-Stored in `public/images/`. More to come.
+Raw PNGs live in `design/raw-images/`; `scripts/optimize-images.mjs`
+generates the responsive WebP sets served from `public/images/`. More to
+come.
 
 | File                           | Content                                                     | Suggested use                    |
 | ------------------------------ | ----------------------------------------------------------- | -------------------------------- |

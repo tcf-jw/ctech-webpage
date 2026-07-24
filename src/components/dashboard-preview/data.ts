@@ -60,9 +60,21 @@ export type SoilDriver = {
 }
 
 export const soilDrivers = [
-  { label: 'Organic Carbon', value: 2.65, decimals: 2, suffix: '%', delta: '8%' },
+  {
+    label: 'Organic Carbon',
+    value: 2.65,
+    decimals: 2,
+    suffix: '%',
+    delta: '8%',
+  },
   { label: 'Microbial Diversity', text: 'High', delta: '15%' },
-  { label: 'Available Nitrogen', value: 42, decimals: 0, suffix: ' mg/kg', delta: '6%' },
+  {
+    label: 'Available Nitrogen',
+    value: 42,
+    decimals: 0,
+    suffix: ' mg/kg',
+    delta: '6%',
+  },
 ] as SoilDriver[]
 
 export const recommendations = [
