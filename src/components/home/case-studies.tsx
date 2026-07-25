@@ -33,7 +33,7 @@ export function CaseStudies() {
                   className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 <div
-                  className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent"
+                  className="absolute inset-0 bg-gradient-to-t from-card via-card/15 to-transparent dark:via-card/30"
                   aria-hidden
                 />
                 <p className="absolute bottom-3 left-6 font-heading text-3xl font-medium tracking-tight md:text-4xl">

@@ -57,7 +57,7 @@ export function Features() {
               className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             />
             <div
-              className="absolute inset-0 bg-gradient-to-r from-card/90 via-card/40 to-transparent"
+              className="absolute inset-0 bg-gradient-to-r from-card/85 via-card/25 to-transparent dark:from-card/90 dark:via-card/40"
               aria-hidden
             />
             <div className="absolute inset-0 flex flex-col justify-center p-6 md:p-10">

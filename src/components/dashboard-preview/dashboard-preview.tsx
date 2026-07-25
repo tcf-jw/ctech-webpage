@@ -15,8 +15,7 @@ export function DashboardPreview() {
       description="Map-first, evidence-linked and built for daily agronomy work — this is the dashboard your team logs into, not a mock-up."
     >
       <FadeIn y={32}>
-        {/* Forced-dark: the product UI stays dark in both site themes */}
-        <div className="dark overflow-hidden rounded-xl bg-background text-foreground shadow-2xl ring-1 ring-foreground/10">
+        <div className="overflow-hidden rounded-xl bg-background text-foreground shadow-2xl ring-1 ring-foreground/10">
           {/* Window chrome */}
           <div className="flex items-center gap-3 border-b border-border/70 px-4 py-3">
             <span className="flex gap-1.5" aria-hidden>

@@ -38,7 +38,7 @@ export function Industries() {
                   className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 <div
-                  className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent"
+                  className="absolute inset-0 bg-gradient-to-t from-card/50 to-transparent dark:from-card/80"
                   aria-hidden
                 />
               </div>

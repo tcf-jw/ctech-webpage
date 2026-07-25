@@ -46,7 +46,7 @@ export function PlatformOverview() {
                     className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   <div
-                    className="absolute inset-0 bg-gradient-to-t from-card/70 to-transparent"
+                    className="absolute inset-0 bg-gradient-to-t from-card/40 to-transparent dark:from-card/70"
                     aria-hidden
                   />
                   <span className="absolute bottom-3 left-4 inline-flex size-10 items-center justify-center rounded-lg bg-background/70 text-primary backdrop-blur-sm">
