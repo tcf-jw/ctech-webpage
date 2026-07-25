@@ -109,13 +109,16 @@ export const mineSiteMonitoring = asset(
   'Two field workers with a tablet inspecting revegetation rows on a rehabilitated mine slope',
 )
 
+// BASE_URL is '/' in dev and '/<repo>/' when built for GitHub Pages.
+const BASE = import.meta.env.BASE_URL
+
 export function srcSetFor(image: ImageAsset) {
   return image.widths
-    .map((w) => `/images/${image.base}-${w}.webp ${w}w`)
+    .map((w) => `${BASE}images/${image.base}-${w}.webp ${w}w`)
     .join(', ')
 }
 
 export function srcFor(image: ImageAsset) {
   const w = image.widths[Math.floor(image.widths.length / 2)]
-  return `/images/${image.base}-${w}.webp`
+  return `${BASE}images/${image.base}-${w}.webp`
 }
