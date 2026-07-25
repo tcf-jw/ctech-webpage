@@ -113,3 +113,18 @@ html = html.replace(
 
 await writeFile(OUT, html)
 console.log(`wrote ${OUT} (${(html.length / 1024 / 1024).toFixed(1)} MB)`)
+
+// 5. Body-fragment variant for hosts that wrap content in their own
+// document skeleton (e.g. claude.ai artifacts): same payload without
+// doctype/html/head/body wrappers.
+const pick = (re) => html.match(re)?.[0] ?? ''
+const fragment = [
+  '<title>Cellutech — Intelligence Beneath Every Hectare</title>',
+  pick(/<script>[\s\S]*?<\/script>/), // dark-mode FOUC guard
+  pick(/<style>[\s\S]*?<\/style>/),
+  '<div id="root"></div>',
+  pick(/<script type="module">[\s\S]*<\/script>/),
+].join('\n')
+const fragOut = OUT.replace(/\.html$/, '.artifact.html')
+await writeFile(fragOut, fragment)
+console.log(`wrote ${fragOut} (${(fragment.length / 1024 / 1024).toFixed(1)} MB)`)
