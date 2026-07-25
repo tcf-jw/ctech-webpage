@@ -82,6 +82,15 @@ export const satelliteIntelligence = asset(
   'True-nadir satellite view of Australian farmland with traced paddock boundaries and sampling points',
 )
 
+// Same scene as satellite-intelligence but with no baked-in annotations —
+// used as the dashboard map base so the live overlay layers are the only
+// graphics on it.
+export const satelliteBaseClean = asset(
+  'satellite-base-clean',
+  CARD_WIDTHS,
+  'True-nadir satellite view of Australian farmland, paddock patchwork crossed by a tree-lined creek',
+)
+
 export const winterCropAerial = asset(
   'winter-crop-aerial',
   CARD_WIDTHS,

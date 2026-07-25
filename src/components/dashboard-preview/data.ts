@@ -166,6 +166,7 @@ export const reports = [
 ]
 
 export const gisLayers = [
+  { key: 'paddocks', label: 'Paddocks' },
   { key: 'grid', label: 'Grid' },
   { key: 'health', label: 'Soil health' },
   { key: 'contours', label: 'Contours' },
@@ -173,3 +174,60 @@ export const gisLayers = [
 ] as const
 
 export type GisLayerKey = (typeof gisLayers)[number]['key']
+
+export type PaddockPolygon = {
+  id: string
+  name: string
+  /** SVG points in the 400x300 view space */
+  points: string
+  /** Tooltip anchor, percent of the map container */
+  anchor: [number, number]
+  health: number
+  organicCarbon: number
+}
+
+// Paddock boundaries hand-traced on the clean satellite base
+// (satellite-base-clean). Interactive on the satellite view only — the
+// oblique drone base can't be traced credibly.
+export const paddockPolygons: PaddockPolygon[] = [
+  {
+    id: 'AUS-NW-042',
+    name: 'North Block',
+    points: '113,94 202,101 199,183 101,174',
+    anchor: [38, 46],
+    health: 82,
+    organicCarbon: 2.65,
+  },
+  {
+    id: 'AUS-NW-043',
+    name: 'Creek West',
+    points: '202,24 288,44 268,100 199,81',
+    anchor: [62, 22],
+    health: 74,
+    organicCarbon: 2.31,
+  },
+  {
+    id: 'AUS-NE-044',
+    name: 'Creek East',
+    points: '290,135 378,145 374,202 287,192',
+    anchor: [83, 56],
+    health: 88,
+    organicCarbon: 3.05,
+  },
+  {
+    id: 'AUS-SW-045',
+    name: 'South West',
+    points: '40,196 142,202 135,283 37,273',
+    anchor: [22, 80],
+    health: 69,
+    organicCarbon: 2.02,
+  },
+  {
+    id: 'AUS-SE-046',
+    name: 'South East',
+    points: '278,186 390,194 383,291 269,283',
+    anchor: [82, 80],
+    health: 77,
+    organicCarbon: 2.48,
+  },
+]

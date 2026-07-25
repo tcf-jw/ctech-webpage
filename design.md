@@ -174,7 +174,8 @@ come.
 | `soil-lab-analysis.png`        | Soil lab bench with sample beakers and instruments          | Chemistry / methodology          |
 | `weather-station-field.png`    | Solar-powered weather and soil monitoring station in field  | Sensors / weather                |
 | `river-meander-aerial.png`     | Aerial river meander through golden hills                   | Catchments / spatial analytics   |
-| `satellite-intelligence.png`   | Satellite view, traced boundaries + sampling grid overlay   | Satellite intelligence           |
+| `satellite-intelligence.png`   | Satellite view, traced boundaries + sampling grid overlay   | Spatial Analytics pillar card    |
+| `satellite-base-clean.png`     | Same satellite scene, zero annotations                      | Dashboard map base (live layers) |
 | `winter-crop-aerial.png`       | Emerald winter crops, red tracks, lifting mist              | Green-season variety / agriculture |
 | `microbial-life-macro.png`     | Backlit root hairs and fungal threads in dark soil          | Microbial Biology pillar         |
 | `mine-site-monitoring.png`     | Workers with tablet on revegetated mine slope               | Mining rehabilitation / evidence |
@@ -231,6 +232,7 @@ obvious AI style).
 | IMAGE 08 | River system aerial                  | `river-meander-aerial.png`                          |
 | IMAGE 09 | Weather station / sensors            | `weather-station-field.png`                         |
 | IMAGE 10 | Soil science laboratory              | `soil-lab-analysis.png`                             |
+| IMAGE 02b | Satellite base, clean (no overlay)  | `satellite-base-clean.png` — dashboard map base; live paddock polygons traced in `dashboard-preview/data.ts` |
 | IMAGE 11 | Microbial life macro (batch 2)       | `microbial-life-macro.png`                          |
 | IMAGE 12 | Mine site monitoring (batch 2)       | `mine-site-monitoring.png`                          |
 | IMAGE 13 | Winter crop aerial (batch 2)         | `winter-crop-aerial.png`                            |

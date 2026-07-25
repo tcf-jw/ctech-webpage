@@ -10,14 +10,12 @@ import {
 import { Panel } from '@/components/dashboard-preview/panel'
 import { GisOverlay } from '@/components/dashboard-preview/gis-overlay'
 import { LayerToggle } from '@/components/dashboard-preview/layer-toggle'
+import { PaddockPolygons } from '@/components/dashboard-preview/paddock-polygons'
 import { AnimatedNumber } from '@/components/shared/animated-number'
 import { Sparkline } from '@/components/shared/sparkline'
 import { TrendDelta } from '@/components/shared/trend-delta'
 import { ResponsiveImage } from '@/components/shared/responsive-image'
-import {
-  heroFarmlandClean,
-  satelliteIntelligence,
-} from '@/components/home/images'
+import { heroFarmlandClean, satelliteBaseClean } from '@/components/home/images'
 import {
   baseViews,
   paddock,
@@ -32,11 +30,18 @@ const BASES = [
 
 type BaseKey = (typeof BASES)[number]['key']
 
+// The oblique drone photo can't carry traced boundaries credibly, so the
+// interactive paddocks layer is satellite-only.
+const LAYERS_BY_BASE: Record<BaseKey, readonly GisLayerKey[]> = {
+  drone: ['grid', 'health', 'contours', 'sites'],
+  satellite: ['paddocks', 'grid', 'health', 'contours', 'sites'],
+}
+
 export function PaddockMap({ className }: { className?: string }) {
   const reduced = useReducedMotion()
   const [base, setBase] = useState<BaseKey>('drone')
   const [layers, setLayers] = useState<Set<GisLayerKey>>(
-    () => new Set<GisLayerKey>(['grid', 'health', 'sites']),
+    () => new Set<GisLayerKey>(['paddocks', 'grid', 'health', 'sites']),
   )
 
   function toggleLayer(key: GisLayerKey) {
@@ -79,7 +84,7 @@ export function PaddockMap({ className }: { className?: string }) {
           style={{ pointerEvents: 'none' }}
         >
           <ResponsiveImage
-            image={satelliteIntelligence}
+            image={satelliteBaseClean}
             sizes="(min-width: 1024px) 620px, 100vw"
             className="h-full w-full"
           />
@@ -90,6 +95,8 @@ export function PaddockMap({ className }: { className?: string }) {
           quad={baseViews[base].quad}
           contours={baseViews[base].contours}
         />
+
+        {base === 'satellite' && layers.has('paddocks') && <PaddockPolygons />}
 
         {/* Base imagery switch, floated like a real map control */}
         <div
@@ -138,7 +145,11 @@ export function PaddockMap({ className }: { className?: string }) {
       </div>
 
       <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
-        <LayerToggle active={layers} onToggle={toggleLayer} />
+        <LayerToggle
+          active={layers}
+          onToggle={toggleLayer}
+          available={LAYERS_BY_BASE[base]}
+        />
         <Sparkline
           series={paddock.healthSeries}
           width={120}

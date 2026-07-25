@@ -8,16 +8,21 @@ import { cn } from '@/lib/utils'
 type LayerToggleProps = {
   active: Set<GisLayerKey>
   onToggle: (key: GisLayerKey) => void
+  available?: readonly GisLayerKey[]
 }
 
-export function LayerToggle({ active, onToggle }: LayerToggleProps) {
+export function LayerToggle({ active, onToggle, available }: LayerToggleProps) {
+  const layers = available
+    ? gisLayers.filter((layer) => available.includes(layer.key))
+    : gisLayers
+
   return (
     <div
       className="flex flex-wrap gap-1.5"
       role="group"
       aria-label="Map layers"
     >
-      {gisLayers.map((layer) => {
+      {layers.map((layer) => {
         const isActive = active.has(layer.key)
         return (
           <Button
