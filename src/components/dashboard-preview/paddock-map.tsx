@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { motion, useReducedMotion } from 'motion/react'
+import { Button } from '@/components/ui/button'
 import {
   Tooltip,
   TooltipContent,
@@ -12,14 +14,24 @@ import { AnimatedNumber } from '@/components/shared/animated-number'
 import { Sparkline } from '@/components/shared/sparkline'
 import { TrendDelta } from '@/components/shared/trend-delta'
 import { ResponsiveImage } from '@/components/shared/responsive-image'
-import { dronePaddocks } from '@/components/home/images'
+import { dronePaddocks, satelliteIntelligence } from '@/components/home/images'
 import {
   paddock,
   sampleSites,
   type GisLayerKey,
 } from '@/components/dashboard-preview/data'
+import { cn } from '@/lib/utils'
+
+const BASES = [
+  { key: 'drone', label: 'Drone' },
+  { key: 'satellite', label: 'Satellite' },
+] as const
+
+type BaseKey = (typeof BASES)[number]['key']
 
 export function PaddockMap({ className }: { className?: string }) {
+  const reduced = useReducedMotion()
+  const [base, setBase] = useState<BaseKey>('drone')
   const [layers, setLayers] = useState<Set<GisLayerKey>>(
     () => new Set<GisLayerKey>(['grid', 'health', 'sites']),
   )
@@ -55,7 +67,47 @@ export function PaddockMap({ className }: { className?: string }) {
           sizes="(min-width: 1024px) 620px, 100vw"
           className="h-full w-full"
         />
+        {/* Satellite base crossfades over the drone imagery */}
+        <motion.div
+          className="absolute inset-0"
+          initial={false}
+          animate={{ opacity: base === 'satellite' ? 1 : 0 }}
+          transition={{ duration: reduced ? 0 : 0.5, ease: 'easeOut' }}
+          style={{ pointerEvents: 'none' }}
+        >
+          <ResponsiveImage
+            image={satelliteIntelligence}
+            sizes="(min-width: 1024px) 620px, 100vw"
+            className="h-full w-full"
+          />
+        </motion.div>
+
         <GisOverlay layers={layers} />
+
+        {/* Base imagery switch, floated like a real map control */}
+        <div
+          role="group"
+          aria-label="Base imagery"
+          className="absolute top-2 right-2 flex gap-1 rounded-md bg-background/70 p-1 backdrop-blur-sm"
+        >
+          {BASES.map((option) => (
+            <Button
+              key={option.key}
+              size="xs"
+              variant="ghost"
+              aria-pressed={base === option.key}
+              onClick={() => setBase(option.key)}
+              className={cn(
+                'h-6 px-2 font-mono text-[11px]',
+                base === option.key
+                  ? 'bg-primary/20 text-primary hover:bg-primary/25 hover:text-primary'
+                  : 'text-muted-foreground',
+              )}
+            >
+              {option.label}
+            </Button>
+          ))}
+        </div>
 
         {layers.has('sites') && (
           <TooltipProvider>
