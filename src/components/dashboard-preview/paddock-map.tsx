@@ -69,12 +69,17 @@ export function PaddockMap({ className }: { className?: string }) {
         </div>
       }
     >
-      <div className="relative aspect-[4/3] overflow-hidden rounded-md">
-        <ResponsiveImage
-          image={heroFarmlandClean}
-          sizes="(min-width: 1024px) 620px, 100vw"
-          className="h-full w-full"
-        />
+      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-md">
+        {/* Base imagery is absolutely positioned so its intrinsic width
+            can't inflate the grid track (iOS Safari sizes grid items by
+            in-flow replaced elements where other engines don't). */}
+        <div className="absolute inset-0">
+          <ResponsiveImage
+            image={heroFarmlandClean}
+            sizes="(min-width: 1024px) 620px, 100vw"
+            className="h-full w-full"
+          />
+        </div>
         {/* Satellite base crossfades over the drone imagery */}
         <motion.div
           className="absolute inset-0"
