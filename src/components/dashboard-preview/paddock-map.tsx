@@ -8,19 +8,19 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip'
 import { Panel } from '@/components/dashboard-preview/panel'
-import { GisOverlay } from '@/components/dashboard-preview/gis-overlay'
 import { LayerToggle } from '@/components/dashboard-preview/layer-toggle'
-import { PaddockPolygons } from '@/components/dashboard-preview/paddock-polygons'
+import { SelectedRegionOverlay } from '@/components/dashboard-preview/selected-region-overlay'
 import { AnimatedNumber } from '@/components/shared/animated-number'
 import { Sparkline } from '@/components/shared/sparkline'
 import { TrendDelta } from '@/components/shared/trend-delta'
 import { ResponsiveImage } from '@/components/shared/responsive-image'
 import { heroFarmlandClean, satelliteBaseClean } from '@/components/home/images'
+import { paddock, type GisLayerKey } from '@/components/dashboard-preview/data'
 import {
-  baseViews,
-  paddock,
-  type GisLayerKey,
-} from '@/components/dashboard-preview/data'
+  selectedOverlayRegions,
+  toCropPercent,
+  type OverlayBase,
+} from '@/components/dashboard-preview/selected-overlay-data'
 import { cn } from '@/lib/utils'
 
 const BASES = [
@@ -28,20 +28,11 @@ const BASES = [
   { key: 'satellite', label: 'Satellite' },
 ] as const
 
-type BaseKey = (typeof BASES)[number]['key']
-
-// The oblique drone photo can't carry traced boundaries credibly, so the
-// interactive paddocks layer is satellite-only.
-const LAYERS_BY_BASE: Record<BaseKey, readonly GisLayerKey[]> = {
-  drone: ['grid', 'health', 'contours', 'sites'],
-  satellite: ['paddocks', 'grid', 'health', 'contours', 'sites'],
-}
-
 export function PaddockMap({ className }: { className?: string }) {
   const reduced = useReducedMotion()
-  const [base, setBase] = useState<BaseKey>('drone')
+  const [base, setBase] = useState<OverlayBase>('drone')
   const [layers, setLayers] = useState<Set<GisLayerKey>>(
-    () => new Set<GisLayerKey>(['paddocks', 'grid', 'health', 'sites']),
+    () => new Set<GisLayerKey>(['paddocks', 'health', 'sites']),
   )
 
   function toggleLayer(key: GisLayerKey) {
@@ -95,13 +86,7 @@ export function PaddockMap({ className }: { className?: string }) {
           />
         </motion.div>
 
-        <GisOverlay
-          layers={layers}
-          quad={baseViews[base].quad}
-          contours={baseViews[base].contours}
-        />
-
-        {base === 'satellite' && layers.has('paddocks') && <PaddockPolygons />}
+        <SelectedRegionOverlay base={base} layers={layers} />
 
         {/* Base imagery switch, floated like a real map control */}
         <div
@@ -130,31 +115,30 @@ export function PaddockMap({ className }: { className?: string }) {
 
         {layers.has('sites') && (
           <TooltipProvider>
-            {baseViews[base].sites.map((site) => (
-              <Tooltip key={site.id}>
-                <TooltipTrigger asChild>
-                  <button
-                    type="button"
-                    aria-label={`Sample site ${site.id}: ${site.reading}`}
-                    className="absolute size-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary ring-2 ring-background transition-transform hover:scale-125 focus-visible:ring-[3px] focus-visible:ring-ring/60 focus-visible:outline-none"
-                    style={{ left: `${site.x}%`, top: `${site.y}%` }}
-                  />
-                </TooltipTrigger>
-                <TooltipContent className="font-mono text-xs">
-                  {site.id} · {site.reading}
-                </TooltipContent>
-              </Tooltip>
-            ))}
+            {selectedOverlayRegions[base].sites.map((site) => {
+              const pos = toCropPercent(site.x, site.y)
+              return (
+                <Tooltip key={site.id}>
+                  <TooltipTrigger asChild>
+                    <button
+                      type="button"
+                      aria-label={`Sample site ${site.id}: ${site.reading}`}
+                      className="absolute size-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-background/90 bg-foreground transition-transform hover:scale-125 focus-visible:ring-[3px] focus-visible:ring-ring/60 focus-visible:outline-none dark:bg-foreground"
+                      style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
+                    />
+                  </TooltipTrigger>
+                  <TooltipContent className="font-mono text-xs">
+                    {site.id} · {site.reading}
+                  </TooltipContent>
+                </Tooltip>
+              )
+            })}
           </TooltipProvider>
         )}
       </div>
 
       <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
-        <LayerToggle
-          active={layers}
-          onToggle={toggleLayer}
-          available={LAYERS_BY_BASE[base]}
-        />
+        <LayerToggle active={layers} onToggle={toggleLayer} />
         <Sparkline
           series={paddock.healthSeries}
           width={120}

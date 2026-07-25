@@ -237,6 +237,18 @@ obvious AI style).
 | IMAGE 12 | Mine site monitoring (batch 2)       | `mine-site-monitoring.png`                          |
 | IMAGE 13 | Winter crop aerial (batch 2)         | `winter-crop-aerial.png`                            |
 
+## Selected-Region Overlay Pack
+
+`design/region-pack/` holds the reference SVG layers and handover doc for
+the dashboard map's selected-analysis-region system (heatmap, grid,
+contours, sample sites, boundary — all clipped to a traced region per
+base). The production implementation is
+`src/components/dashboard-preview/selected-region-overlay.tsx` +
+`selected-overlay-data.ts`; geometry is in full 1376x768 image
+coordinates rendered with `preserveAspectRatio="slice"` so it crops in
+step with the object-cover base imagery. Overlay colors are
+photo-anchored (fixed, not theme tokens) by design.
+
 ## Design Reference
 
 `design/homepage-mockup.png` is the visual north star: hero layout with nav
