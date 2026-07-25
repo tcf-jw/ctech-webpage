@@ -38,8 +38,14 @@
       }
     </script>
     <script>
-      // Cellutech is dark-first: dark unless the user explicitly chose light.
-      if (localStorage.getItem('theme') !== 'light') {
+      // Cellutech is dark-first: dark unless the user explicitly chose
+      // light. Storage access can throw in sandboxed iframes and private
+      // browsing - any failure falls back to dark.
+      var theme = null
+      try {
+        theme = localStorage.getItem('theme')
+      } catch (e) {}
+      if (theme !== 'light') {
         document.documentElement.classList.add('dark')
       }
     </script>

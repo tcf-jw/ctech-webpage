@@ -8,7 +8,12 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', dark)
-    localStorage.setItem('theme', dark ? 'dark' : 'light')
+    try {
+      localStorage.setItem('theme', dark ? 'dark' : 'light')
+    } catch {
+      // Sandboxed iframes / private browsing: theme still applies, just
+      // isn't persisted.
+    }
   }, [dark])
 
   return (
