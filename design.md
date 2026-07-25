@@ -205,6 +205,14 @@ Deferred items to pick up in a local session:
 6. **Mobile Lighthouse** — desktop scores 99/100/100/100; mobile-throttled
    perf ~82–85 (SPA boot cost). If mobile perf becomes a hard target,
    consider SSG/prerendering the homepage.
+7. **QUEUED: satellite + batch-2 placements** — (a) Paddock Overview gets
+   a Drone/Satellite base-imagery toggle using `satellite-intelligence`
+   (crossfade, GIS overlays work on both bases) — preferred placement,
+   product-first; (b) afterwards, dress all three Platform pillar cards
+   together with `soil-lab-analysis`, `microbial-life-macro` and
+   `satellite-intelligence` photo headers (all three or none, for
+   symmetry). Mine-site-monitoring and winter-crop-aerial placements
+   still open (mining industry card / case-studies band).
 
 ## Image Generation Pack Mappings
 
