@@ -174,7 +174,7 @@ come.
 | `soil-lab-analysis.png`        | Soil lab bench with sample beakers and instruments          | Chemistry / methodology          |
 | `weather-station-field.png`    | Solar-powered weather and soil monitoring station in field  | Sensors / weather                |
 | `river-meander-aerial.png`     | Aerial river meander through golden hills                   | Catchments / spatial analytics   |
-| `satellite-intelligence.png`   | PLACEHOLDER satellite view with analysis overlay            | Satellite intelligence (interim) |
+| `satellite-intelligence.png`   | Satellite view, traced boundaries + sampling grid overlay   | Satellite intelligence           |
 
 ## Flags / Backlog
 
@@ -188,11 +188,10 @@ Deferred items to pick up in a local session:
    download Satoshi from fontshare.com, drop `Satoshi-Variable.woff2` in
    `public/fonts/`, add an `@font-face`, and put `'Satoshi Variable'` first
    in `--font-heading` in `src/index.css`.
-3. **IMAGE 02 satellite asset** — a derived placeholder
-   (`satellite-intelligence`) is in the pipeline; replace
-   `design/raw-images/satellite-intelligence.png` with the real Gemini
-   render (prompt: `design/gemini-satellite-prompt.md`) and re-run
-   `node scripts/optimize-images.mjs`.
+3. ~~IMAGE 02 satellite asset~~ — RESOLVED: real Gemini render in place
+   (chosen from the candidate batch). Batch-2 prompts for additional shots
+   (microbe macro, mine site monitoring, winter crop aerial) live in
+   `design/gemini-image-prompts-2.md`; assets pending.
 4. **shadcn vendored components** — ui.shadcn.com was proxy-blocked, so
    accordion/sheet/input/textarea/label/separator were vendored from the
    shadcn-ui repo sources (radix-vega style). Optionally re-run
@@ -215,7 +214,7 @@ obvious AI style).
 | Pack ID  | Subject                              | Asset in `public/images/`                          |
 | -------- | ------------------------------------ | -------------------------------------------------- |
 | IMAGE 01 | Homepage hero (broadacre, GIS overlay, floating card) | `hero-farmland-ui-overlay.png` (clean variant: `hero-farmland-clean.png`) |
-| IMAGE 02 | Satellite intelligence               | `satellite-intelligence.png` — PLACEHOLDER derived from river-meander aerial (`scripts/make-satellite-placeholder.mjs`); real render pending via `design/gemini-satellite-prompt.md` |
+| IMAGE 02 | Satellite intelligence               | `satellite-intelligence.png` — Gemini render (IMG_0034 of the candidate batch: traced boundaries, sampling grid, subtle tint) |
 | IMAGE 03 | Macro soil profile                   | `soil-roots-macro.png`                              |
 | IMAGE 04 | Agronomist collecting samples        | `agronomist-soil-sampling.png`                      |
 | IMAGE 05 | Drone survey over crops              | `drone-paddocks.png`                                |

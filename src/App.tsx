@@ -25,6 +25,7 @@ export default function App() {
             </Suspense>
           }
         />
+        <Route path="*" element={<Home />} />
       </Routes>
       <AppToaster />
     </ThemeProvider>
