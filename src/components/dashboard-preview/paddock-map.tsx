@@ -14,10 +14,13 @@ import { AnimatedNumber } from '@/components/shared/animated-number'
 import { Sparkline } from '@/components/shared/sparkline'
 import { TrendDelta } from '@/components/shared/trend-delta'
 import { ResponsiveImage } from '@/components/shared/responsive-image'
-import { dronePaddocks, satelliteIntelligence } from '@/components/home/images'
 import {
+  heroFarmlandClean,
+  satelliteIntelligence,
+} from '@/components/home/images'
+import {
+  baseViews,
   paddock,
-  sampleSites,
   type GisLayerKey,
 } from '@/components/dashboard-preview/data'
 import { cn } from '@/lib/utils'
@@ -63,7 +66,7 @@ export function PaddockMap({ className }: { className?: string }) {
     >
       <div className="relative aspect-[4/3] overflow-hidden rounded-md">
         <ResponsiveImage
-          image={dronePaddocks}
+          image={heroFarmlandClean}
           sizes="(min-width: 1024px) 620px, 100vw"
           className="h-full w-full"
         />
@@ -82,7 +85,11 @@ export function PaddockMap({ className }: { className?: string }) {
           />
         </motion.div>
 
-        <GisOverlay layers={layers} />
+        <GisOverlay
+          layers={layers}
+          quad={baseViews[base].quad}
+          contours={baseViews[base].contours}
+        />
 
         {/* Base imagery switch, floated like a real map control */}
         <div
@@ -111,7 +118,7 @@ export function PaddockMap({ className }: { className?: string }) {
 
         {layers.has('sites') && (
           <TooltipProvider>
-            {sampleSites.map((site) => (
+            {baseViews[base].sites.map((site) => (
               <Tooltip key={site.id}>
                 <TooltipTrigger asChild>
                   <button

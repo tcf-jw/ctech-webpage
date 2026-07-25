@@ -21,13 +21,76 @@ export const heatMatrix = [
   [0.1, 0.15, 0.25, 0.35, 0.4, 0.3, 0.2, 0.1],
 ]
 
-export const sampleSites = [
-  { id: 'P1', x: 22, y: 30, reading: 'OC 3.1% · pH 6.4' },
-  { id: 'P2', x: 48, y: 22, reading: 'OC 2.8% · pH 6.2' },
-  { id: 'P3', x: 71, y: 38, reading: 'OC 2.2% · pH 5.8' },
-  { id: 'P4', x: 38, y: 62, reading: 'OC 2.9% · pH 6.1' },
-  { id: 'P5', x: 63, y: 74, reading: 'OC 2.6% · pH 6.0' },
-]
+export type Quad = {
+  tl: [number, number]
+  tr: [number, number]
+  br: [number, number]
+  bl: [number, number]
+}
+
+export type MapSite = {
+  id: string
+  x: number
+  y: number
+  reading: string
+}
+
+export type BaseView = {
+  quad: Quad
+  contours: string[]
+  sites: MapSite[]
+}
+
+// Overlay geometry is tuned per base image (SVG viewBox 400x300 over an
+// aspect-4/3 crop of the 16:9 source): the analysis quad sits on an actual
+// paddock block in each photo, and sample sites land on ground, not sky
+// or creek.
+export const baseViews: Record<'drone' | 'satellite', BaseView> = {
+  drone: {
+    // hero-farmland-clean: central paddock mosaic, oblique perspective
+    quad: {
+      tl: [105, 112],
+      tr: [330, 120],
+      br: [365, 238],
+      bl: [70, 226],
+    },
+    contours: [
+      'M 90 215 Q 160 170 230 190 T 355 165',
+      'M 110 235 Q 190 195 270 210 T 370 190',
+      'M 80 185 Q 150 140 240 158 T 345 138',
+    ],
+    sites: [
+      { id: 'P1', x: 30, y: 52, reading: 'OC 3.1% · pH 6.4' },
+      { id: 'P2', x: 45, y: 43, reading: 'OC 2.8% · pH 6.2' },
+      { id: 'P3', x: 62, y: 48, reading: 'OC 2.2% · pH 5.8' },
+      { id: 'P4', x: 40, y: 66, reading: 'OC 2.9% · pH 6.1' },
+      { id: 'P5', x: 70, y: 63, reading: 'OC 2.6% · pH 6.0' },
+    ],
+  },
+  satellite: {
+    // satellite-intelligence: nadir, near-parallelogram on the clean
+    // paddock block in the lower right, clear of the creek corridor and
+    // the image's baked-in boundary traces
+    quad: {
+      tl: [278, 186],
+      tr: [390, 194],
+      br: [383, 291],
+      bl: [269, 283],
+    },
+    contours: [
+      'M 318 24 Q 288 85 246 138 T 122 278',
+      'M 336 30 Q 305 95 262 150 T 140 288',
+      'M 300 18 Q 272 78 230 130 T 105 268',
+    ],
+    sites: [
+      { id: 'P1', x: 60, y: 20, reading: 'OC 3.1% · pH 6.4' },
+      { id: 'P2', x: 72, y: 10, reading: 'OC 2.8% · pH 6.2' },
+      { id: 'P3', x: 78, y: 55, reading: 'OC 2.2% · pH 5.8' },
+      { id: 'P4', x: 48, y: 38, reading: 'OC 2.9% · pH 6.1' },
+      { id: 'P5', x: 25, y: 72, reading: 'OC 2.6% · pH 6.0' },
+    ],
+  },
+}
 
 export const radarAxes = [
   'Total N',
