@@ -183,6 +183,7 @@ export const caseStudies = [
     quote:
       'The microbial data changed how we sequence our rotation. Carbon is up on every monitored paddock, and we can show exactly why.',
     role: 'Senior Agronomist, NSW mixed cropping enterprise',
+    imageKey: 'winterCropAerial',
   },
   {
     metric: 32,
@@ -192,6 +193,7 @@ export const caseStudies = [
     quote:
       'Cellutech gave us completion-criteria evidence regulators accepted first pass. The savings on blanket ameliorant applications paid for the program.',
     role: 'Rehabilitation Lead, Bowen Basin mining operation',
+    imageKey: 'mineSiteMonitoring',
   },
 ] as const
 

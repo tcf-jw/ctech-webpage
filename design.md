@@ -176,9 +176,9 @@ come.
 | `river-meander-aerial.png`     | Aerial river meander through golden hills                   | Catchments / spatial analytics   |
 | `satellite-intelligence.png`   | Satellite view, traced boundaries + sampling grid overlay   | Spatial Analytics pillar card    |
 | `satellite-base-clean.png`     | Same satellite scene, zero annotations                      | Dashboard map base (live layers) |
-| `winter-crop-aerial.png`       | Emerald winter crops, red tracks, lifting mist              | Green-season variety / agriculture |
+| `winter-crop-aerial.png`       | Emerald winter crops, red tracks, lifting mist              | NSW cropping case-study card     |
 | `microbial-life-macro.png`     | Backlit root hairs and fungal threads in dark soil          | Microbial Biology pillar         |
-| `mine-site-monitoring.png`     | Workers with tablet on revegetated mine slope               | Mining rehabilitation / evidence |
+| `mine-site-monitoring.png`     | Workers with tablet on revegetated mine slope               | Bowen Basin case-study card      |
 
 ## Flags / Backlog
 
@@ -209,8 +209,8 @@ Deferred items to pick up in a local session:
 7. ~~Satellite + pillar placements~~ — DONE: Paddock Overview has a
    Drone/Satellite base-imagery crossfade, and all three Platform pillar
    cards carry photo headers (lab / microbe macro / satellite).
-   `mine-site-monitoring` and `winter-crop-aerial` placements still open
-   (mining industry card / case-studies band).
+   `mine-site-monitoring` and `winter-crop-aerial` now carry the two
+   case-study cards — every pack asset is placed.
 
 ## Image Generation Pack Mappings
 
