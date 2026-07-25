@@ -214,7 +214,7 @@ obvious AI style).
 | Pack ID  | Subject                              | Asset in `public/images/`                          |
 | -------- | ------------------------------------ | -------------------------------------------------- |
 | IMAGE 01 | Homepage hero (broadacre, GIS overlay, floating card) | `hero-farmland-ui-overlay.png` (clean variant: `hero-farmland-clean.png`) |
-| IMAGE 02 | Satellite intelligence               | `satellite-intelligence.png` — Gemini render (IMG_0034 of the candidate batch: traced boundaries, sampling grid, subtle tint) |
+| IMAGE 02 | Satellite intelligence               | `satellite-intelligence.png` — Gemini render, true nadir: paddock patchwork, creek corridors, traced boundaries + sampling points |
 | IMAGE 03 | Macro soil profile                   | `soil-roots-macro.png`                              |
 | IMAGE 04 | Agronomist collecting samples        | `agronomist-soil-sampling.png`                      |
 | IMAGE 05 | Drone survey over crops              | `drone-paddocks.png`                                |
