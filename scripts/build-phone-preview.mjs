@@ -122,6 +122,10 @@ const fragment = [
   '<title>Cellutech — Intelligence Beneath Every Hectare</title>',
   pick(/<script>[\s\S]*?<\/script>/), // dark-mode FOUC guard
   pick(/<style>[\s\S]*?<\/style>/),
+  // Unlayered override: host pages (e.g. artifact viewers) inject their
+  // own unlayered resets, which beat our @layer-based body rules. This
+  // must come after the main stylesheet.
+  '<style>html,body{background:var(--background)!important;color:var(--foreground)!important}</style>',
   '<div id="root"></div>',
   pick(/<script type="module">[\s\S]*<\/script>/),
 ].join('\n')

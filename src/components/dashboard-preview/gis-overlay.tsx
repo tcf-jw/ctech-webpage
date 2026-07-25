@@ -139,6 +139,8 @@ export function GisOverlay({ layers, quad, contours }: GisOverlayProps) {
         {layers.has('contours') && (
           <motion.g key={`contours-${quad.tl[0]}`} {...fade}>
             {contours.map((d, i) => (
+              // Draws on mount/toggle: in-view observation of SVG paths
+              // never fires on iOS WebKit.
               <motion.path
                 key={d}
                 d={d}
@@ -147,8 +149,7 @@ export function GisOverlay({ layers, quad, contours }: GisOverlayProps) {
                 strokeOpacity={0.55}
                 strokeWidth={0.75}
                 initial={{ pathLength: reduced ? 1 : 0 }}
-                whileInView={{ pathLength: 1 }}
-                viewport={{ once: true }}
+                animate={{ pathLength: 1 }}
                 transition={{ duration: 1.2, ease: 'easeOut', delay: i * 0.2 }}
               />
             ))}

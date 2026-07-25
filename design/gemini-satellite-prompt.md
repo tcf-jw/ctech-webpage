@@ -68,3 +68,29 @@ obvious AI artwork
 
 Generate it as if it came from the same photographer and colour grade as
 the rest of the Cellutech campaign.
+
+---
+
+# IMAGE 02b — Satellite base, clean (no annotations)
+
+Same brief as IMAGE 02 above — identical scene character, altitude,
+palette and grade — with ONE change:
+
+NO overlay of any kind. No boundary traces. No sampling grid. No vector
+lines. No analysis tint. Pure, untouched nadir satellite photography.
+
+This variant is the base imagery inside the product dashboard, where the
+software draws its own live analysis layers on top — any baked-in
+annotation would fight them.
+
+Negative prompt (in addition to the standard set):
+
+vector lines
+
+boundary traces
+
+grid overlays
+
+highlighted fields
+
+annotations of any kind

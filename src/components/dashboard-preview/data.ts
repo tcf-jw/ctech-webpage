@@ -68,14 +68,14 @@ export const baseViews: Record<'drone' | 'satellite', BaseView> = {
     ],
   },
   satellite: {
-    // satellite-intelligence: nadir, near-parallelogram on the clean
-    // paddock block in the lower right, clear of the creek corridor and
-    // the image's baked-in boundary traces
+    // satellite-intelligence: nadir; the quad sits ON the image's own
+    // traced field (upper left) so the baked boundary and the live
+    // analysis layers read as one system
     quad: {
-      tl: [278, 186],
-      tr: [390, 194],
-      br: [383, 291],
-      bl: [269, 283],
+      tl: [112, 94],
+      tr: [204, 100],
+      br: [197, 184],
+      bl: [103, 176],
     },
     contours: [
       'M 318 24 Q 288 85 246 138 T 122 278',
@@ -83,10 +83,10 @@ export const baseViews: Record<'drone' | 'satellite', BaseView> = {
       'M 300 18 Q 272 78 230 130 T 105 268',
     ],
     sites: [
-      { id: 'P1', x: 60, y: 20, reading: 'OC 3.1% · pH 6.4' },
-      { id: 'P2', x: 72, y: 10, reading: 'OC 2.8% · pH 6.2' },
+      { id: 'P1', x: 34, y: 38, reading: 'OC 3.1% · pH 6.4' },
+      { id: 'P2', x: 43, y: 55, reading: 'OC 2.8% · pH 6.2' },
       { id: 'P3', x: 78, y: 55, reading: 'OC 2.2% · pH 5.8' },
-      { id: 'P4', x: 48, y: 38, reading: 'OC 2.9% · pH 6.1' },
+      { id: 'P4', x: 60, y: 20, reading: 'OC 2.9% · pH 6.1' },
       { id: 'P5', x: 25, y: 72, reading: 'OC 2.6% · pH 6.0' },
     ],
   },

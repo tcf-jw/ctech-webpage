@@ -53,6 +53,8 @@ export function Sparkline({
         curve={curveMonotoneX}
       >
         {({ path }) => (
+          // Draws on mount rather than in-view: IntersectionObserver on
+          // SVG elements never fires on iOS WebKit.
           <motion.path
             d={path(series) || ''}
             fill="none"
@@ -60,8 +62,7 @@ export function Sparkline({
             strokeWidth={1.5}
             strokeLinecap="round"
             initial={{ pathLength: reduced ? 1 : 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true }}
+            animate={{ pathLength: 1 }}
             transition={{ duration: 0.9, ease: 'easeOut', delay }}
           />
         )}

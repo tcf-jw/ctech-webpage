@@ -1,4 +1,5 @@
-import { motion, useReducedMotion } from 'motion/react'
+import { useRef } from 'react'
+import { motion, useInView, useReducedMotion } from 'motion/react'
 import { radarAxes, radarSeries } from '@/components/dashboard-preview/data'
 
 const SIZE = 260
@@ -26,6 +27,11 @@ function polygonPoints(values: number[]) {
 
 export function RadarChart() {
   const reduced = useReducedMotion()
+  // In-view tracking happens on the HTML figure, not the SVG group:
+  // iOS WebKit's IntersectionObserver does not fire reliably for SVG
+  // elements, which left the polygons invisible on iPhones.
+  const figureRef = useRef<HTMLElement>(null)
+  const inView = useInView(figureRef, { once: true, margin: '-40px' })
   const [paddockSeries, districtSeries] = radarSeries
 
   const description = radarAxes
@@ -36,7 +42,7 @@ export function RadarChart() {
     .join('; ')
 
   return (
-    <figure className="m-0">
+    <figure ref={figureRef} className="m-0">
       <svg
         viewBox={`0 0 ${SIZE} ${SIZE}`}
         className="mx-auto w-full max-w-[260px]"
@@ -78,8 +84,13 @@ export function RadarChart() {
 
         <motion.g
           initial={reduced ? { opacity: 0 } : { opacity: 0, scale: 0.7 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: '-40px' }}
+          animate={
+            inView
+              ? { opacity: 1, scale: 1 }
+              : reduced
+                ? { opacity: 0 }
+                : { opacity: 0, scale: 0.7 }
+          }
           transition={{ duration: 0.7, ease: 'easeOut' }}
           style={{ transformOrigin: `${CENTER}px ${CENTER}px` }}
         >
